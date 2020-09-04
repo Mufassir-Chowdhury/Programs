@@ -1,7 +1,8 @@
 #include<iostream>
-using namespace std;
-
+#include<cmath>
 int main(){
-    cout << "Hello gihub people" << endl;
+    std::cout << "Hello gihub people" << std::endl;
+    std::cout << pow(5., .25);
     return 0;
+    
 }
