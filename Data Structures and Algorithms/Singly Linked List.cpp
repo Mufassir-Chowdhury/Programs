@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 
 struct node{
@@ -210,11 +210,17 @@ void SinglyLinkedList::insertNextToHead(int val){
 void SinglyLinkedList::insertAtPos(int val, int pos){
     if(pos == 1){
         insertIntoHead(val);
-    } else if(pos == member+1){
+    } else if(pos >= member+1){
         insertIntoTail(val);
     } else{
         member++;
-        node *val = 
+        node *value = new node(val), *temp = head;
+        for(int i = 2; i<pos; i++){
+            temp = temp -> next;
+        }
+        value -> next = temp -> next -> next;
+        temp -> next = value;
+
     }
 }
 
@@ -260,5 +266,14 @@ int main(){
     SinglyLinkedList sl;
     sl.insertIntoHead(4);
     cout << sl.listSize();
+    sl.insertAtPos(1,2);
+    sl.printList();
+    sl.insertIntoTail(5);
+    sl.insertIntoHead(6);
+    sl.insertAtPos(3,2);
+    sl.insertIntoHead(3);
+    sl.insertIntoHead(83);
+    sl.printList();
+    perror( "No");
     return 0;
 }
