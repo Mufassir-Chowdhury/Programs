@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "xutility": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "algorithm": "cpp",
+        "string": "cpp",
+        "xstring": "cpp"
     }
 }
