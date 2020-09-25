@@ -8,9 +8,9 @@ int main(){
     int n;
     cin >> n;
     deque <int> d;
+    bool rev = 0;
     while(n--){
         string query;
-        bool rev = 0;
         cin >> query;
         if(query == "back"){
             if(d.empty()){
