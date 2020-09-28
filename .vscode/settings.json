@@ -4,6 +4,7 @@
         "deque": "cpp",
         "algorithm": "cpp",
         "string": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "cmath": "cpp"
     }
 }

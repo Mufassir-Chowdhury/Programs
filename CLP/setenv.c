@@ -15,3 +15,4 @@ int main(void){
     printf("red = %d\n---------------\n", ret);
     return 0;
 }
+
