@@ -14,21 +14,30 @@ class mComms(commands.Cog):
     async def classes(self, ctx):
         await ctx.send(
                 '1/2\n'
-                '#Mon__19_10_20\n'
-                'DS137 class at 12:00 PM\n'
-                '⤇ zoom : 654 6441 0113\n'
-                'Ethics147 class at 03:00 PM\n' 
-                '### Reminder: klk mcq test ache\n'
-                '⤇ zoom : 66849672192"\n'
+                '#_10_11_20\n'
+                'Project 150 workshop at 7:00 PM\n'
         )
 
     @commands.command()
     async def exam(self, ctx):
-        await ctx.send("EEE (1-1) @ 15/11/2020! :v:")
+        await ctx.send("**EEE 1-1:**\n"
+                        "Quiz\n"
+                        "15 November\n"
+                        "Chapter 1, 2, 3, 4, 6, 7\n"
+                        " \n"
+                        "**Math:**\n"
+                        "Presentation + Viva\n"
+                        "Starting from 20 November.\n"
+                        "Presentation must be hand written. At least 20 minutes of presentation required. Differential Calculus.\n" 
+                        " \n"
+                        "**Ethics:**\n"
+                        "Quiz\n"
+                        "16 November.\n"  
+                        "Everything discussed starting from plagiarism.\n")
     
     @commands.command()
     async def assignment(self, ctx):
-        await ctx.send('No assignments! Horray! :partying_face:')
+        await ctx.send('Assignments upcoming! :partying_face:')
 
 def setup(client):
     client.add_cog(mComms(client))
