@@ -1,3 +1,7 @@
 n = int(input())
 binary = bin(n)
-print(type(binary))
+newbin = ""
+for i in binary:
+    if i == '1':
+        newbin += i
+print(int(newbin, 2))
