@@ -43,5 +43,6 @@
         "xstddef": "cpp",
         "xtr1common": "cpp",
         "queue": "cpp"
-    }
+    },
+    "compile-hero.disable-compile-files-on-did-save-code": false
 }

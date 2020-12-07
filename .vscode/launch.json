@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Constructor",
+            "request": "launch",
+            "mainClass": "Constructor",
+            "projectName": "Programs_2d619c80"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Tax",
             "request": "launch",
             "mainClass": "Tax",
