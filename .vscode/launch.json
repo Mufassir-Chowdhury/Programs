@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Method",
+            "request": "launch",
+            "mainClass": "Method",
+            "projectName": "Programs_2d619c80"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MonthGuesser",
+            "request": "launch",
+            "mainClass": "MonthGuesser",
+            "projectName": "Programs_2d619c80"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CountProgram",
+            "request": "launch",
+            "mainClass": "CountProgram",
+            "projectName": "Programs_2d619c80"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Fare_Calculator",
+            "request": "launch",
+            "mainClass": "Fare_Calculator",
+            "projectName": "Programs_2d619c80"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Constructor",
             "request": "launch",
             "mainClass": "Constructor",
