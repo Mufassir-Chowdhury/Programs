@@ -36,3 +36,31 @@
 
 
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Kalpurush';
+    font-weight: 400;
+    src: url('kalpurush.ttf')
+}
+@font-face {
+    font-family: 'Kalpurush';
+    font-weight: 500;
+    src: url('kalpurush.ttf')
+}@font-face {
+    font-family: 'Kalpurush';
+    font-weight: 600;
+    src: url('kalpurush.ttf')
+}@font-face {
+    font-family: 'Kalpurush';
+    font-weight: 700;
+    src: url('kalpurush.ttf')
+}@font-face {
+    font-family: 'Kalpurush';
+    font-weight: 800;
+    src: url('kalpurush.ttf')
+}
+@font-face {
+    font-family: 'Kalpurush';
+    font-weight: 900;
+    src: url('kalpurush.ttf')
+}
