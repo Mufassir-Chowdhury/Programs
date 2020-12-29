@@ -1,0 +1,72 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>5.1 The process and its environment</title>
+</head><body>A process is a running code. The process may end voluntarily or forcibly by OS when it tries to mess up. <br/>
+<br/>
+A running process has:<br/>
+1. An <b>unique identifier </b>named <b>PID.<br/>
+</b>2. A <b>code segment </b>- a part of memory used to store process's code and executed.<br/>
+3. A <b>data segment - </b>a part of memory used to store process's data.<br/>
+4. A <b>context -</b>set of all the data needed to suspend and resume the process.<br/>
+<br/>
+A <b>parent </b>process starts a <b>child </b>process. <br/>
+<br/>
+The <tt>system() </tt>function creates a child process and executes the command passed as an argument. The command may be an actual command from OS's shell or the name of an external program to launch and execute. <br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+When a child process is working, the parent is put to sleep until child ends. <tt>NULL </tt>as an argument checks if it can open a shell.<br/>
+If the command is <tt>NULL</tt>, the function returns zero if there's no shell availabe or non-zero otherwise.<br/>
+If the command is not <tt>NULL</tt>, it returns -1 if the child process can't start or the return code of the child process. <br/>
+<b>N.B: In Unix the return code is in the higher eight bits of the result and others contain the termination reason code. You can use the following code to get it:<br/>
+<br/>
+</b><img src="image 2.png"/><b><br/>
+</b><b><br/>
+<br/>
+</b>We write a simple program <br/>
+<br/>
+<img src="image 3.png"/><br/>
+<img src="image 4.png"/><br/>
+<br/>
+The environment variable is couple of strings in a process's memory which are used to store some global configuration data which should be accessible to all working processed like, path variable. Every process has its own copy of the environment and it's child inherits them from it. A process can change its environment but it will be visible only to him and his children. <br/>
+<br/>
+The &quot;C&quot; language allows you to three different forms of <tt>main() </tt>:<br/>
+<br/>
+<img src="image 5.png"/><br/>
+<br/>
+Let's see how many environment variables are there:<br/>
+<br/>
+<img src="image 6.png"/><br/>
+<img height="637" src="image 7.png" width="1000"/><br/>
+<img height="494" src="image 8.png" width="1000"/><br/>
+<br/>
+There's another function which gets a single environment variable. The result is <tt>NULL </tt>if there is no variable ofthat name. And a pointer to the variable's value otherwise.<br/>
+<br/>
+<img src="image 9.png"/><br/>
+<br/>
+Now let's check the user of the pc using <tt>getenv()<br/>
+</tt><br/>
+<img src="image 10.png"/><br/>
+<img src="image 11.png"/><br/>
+<br/>
+The <tt>setenv() </tt>function sets environment variables and <tt>unsetenv() </tt>removes environment variables. The third parameter of <tt>setenv() </tt>asks if you want to overwrite any existing value.<br/>
+<br/>
+<img src="image 12.png"/><br/>
+<br/>
+Let's try them:<br/>
+<br/>
+<img src="image 13.png"/><br/>
+<img src="image 15.png"/><br/>
+<br/>
+<br/>
+The Windows version of the function is <tt>putenv()</tt>. It can be invoked in two forms:<br/>
+1. <tt>NAME=VAL </tt>which sets <tt>VAL </tt>to <tt>NAME<br/>
+</tt>2. <tt>NAME= </tt>which removes <tt>NAME<br/>
+</tt><tt><br/>
+</tt><img src="image 14.png"/><br/>
+<br/>
+<img src="image 16.png"/><br/>
+<img src="image 17.png"/><br/>
+<br/>
+</body></html>

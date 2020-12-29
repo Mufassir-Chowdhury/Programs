@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>1.4 New keywords and capabilities</string>
+  <key>nodeid</key><string>65a314a3-74ed-431d-9a09-a6192971ab77</string>
+  <key>modified_time</key><integer>1599759450</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1599756312</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>3</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

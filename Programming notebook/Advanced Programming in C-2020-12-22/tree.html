@@ -1,0 +1,157 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<style>
+.node
+{
+    padding-left: 20px;
+    display: block;
+}
+
+.node_collapsed
+{
+    padding-left: 20px;
+    display: none;
+
+    
+    visibility: hidden;
+    display: none;
+}
+
+
+
+a:active
+{
+text-decoration:none;
+color: #0000FF;
+font-weight: bold;
+}
+
+a:visited
+{
+text-decoration:none;
+color: #000;
+font-weight: bold;
+}
+
+a:link
+{
+text-decoration:none;
+color: #000;
+font-weight: bold;
+}
+
+a:hover
+{
+text-decoration: underline;
+color: #500;
+font-weight: bold;
+}
+
+</style>
+
+
+<script language="javascript">
+  
+    var displayStates = [];
+
+    function showDiv(div)
+    {    
+        div.style.height     = "";
+        div.style.display    = "block";
+        div.style.visibility = "visible";
+    }
+
+    function hideDiv(div)
+    {
+        div.style.height     = "0px";
+        div.style.display    = "none";      
+        div.style.visibility = "hidden";
+    }
+
+    function toggleDiv(div, defaultState)
+    {
+
+        // set default on first use
+        if (displayStates[div] == undefined)
+            displayStates[div] = defaultState;
+
+        // toggle state
+        displayStates[div] = !displayStates[div];       
+
+        // hide / show
+        if (displayStates[div])
+            showDiv(div);
+        else {
+            hideDiv(div);
+        }
+    }
+
+    function toggleDivName(divname, defaultState)
+    {
+        toggleDiv(document.getElementById(divname), defaultState);
+    }
+
+</script>
+
+<nobr><tt><a href='javascript: toggleDivName("03c3004c-7ad6-4bad-9453-b193417d7930", true)'>+</a>&nbsp;</tt>Advanced Programming in C</nobr><br/>
+<div id='03c3004c-7ad6-4bad-9453-b193417d7930' class='node'><nobr><tt><a href='javascript: toggleDivName("b94d96b3-ea03-42fd-bbda-17e555204223", true)'>+</a>&nbsp;</tt>Evolution of C: From Past to Eternity</nobr><br/>
+<div id='b94d96b3-ea03-42fd-bbda-17e555204223' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='evolution%20of%20c%20from%20past%20to%20eternity/1.1%20the%20evolution%20of%20c/page.html' target='viewer'>1.1 The evolution of C</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='evolution%20of%20c%20from%20past%20to%20eternity/1.2%20trigraphs%20and%20digraphs/page.html' target='viewer'>1.2 Trigraphs and Digraphs</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='evolution%20of%20c%20from%20past%20to%20eternity/1.3%20standardization/page.html' target='viewer'>1.3 Standardization </a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='evolution%20of%20c%20from%20past%20to%20eternity/1.4%20new%20keywords%20and%20capabilities/page.html' target='viewer'>1.4 New keywords and capabilities</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='evolution%20of%20c%20from%20past%20to%20eternity/module%20quiz/page.html' target='viewer'>Module Quiz</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='evolution%20of%20c%20from%20past%20to%20eternity/module%20test/page.html' target='viewer'>Module Test</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("6dd9d765-38dd-4267-9d97-bca98c44662e", true)'>+</a>&nbsp;</tt>Handling variable number of parameters</nobr><br/>
+<div id='6dd9d765-38dd-4267-9d97-bca98c44662e' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.1%20calling%20conventions/page.html' target='viewer'>2.1 Calling conventions</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.2%20ellipsis/page.html' target='viewer'>2.2 Ellipsis</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.3%20stdarg.h/page.html' target='viewer'>2.3 stdarg.h</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.3.8%20practice%20strcat/page.html' target='viewer'>2.3.8 Practice strcat</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.3.9%20practice%20printf%20function/page.html' target='viewer'>2.3.9 Practice printf function</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.4%20va_list%20as%20a%20parameter/page.html' target='viewer'>2.4 va_list as a parameter</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.4.6%20variadic%20functions/page.html' target='viewer'>2.4.6 variadic functions</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.4.8%20frprintf%20function/page.html' target='viewer'>2.4.8 frprintf function</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/2.5%20variadic%20macro/page.html' target='viewer'>2.5 variadic macro</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/module%20quiz/page.html' target='viewer'>Module Quiz</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='handling%20variable%20number%20of%20parameters/module%20test/page.html' target='viewer'>Module Test</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("477db861-0bde-4067-a910-35dffa04fc1f", true)'>+</a>&nbsp;</tt>Low Level I/O</nobr><br/>
+<div id='477db861-0bde-4067-a910-35dffa04fc1f' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.1%20api%20and%20abi/page.html' target='viewer'>3.1 API and ABI</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.2%20file%20descriptor/page.html' target='viewer'>3.2 File Descriptor</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.3%20opening%20and%20closing%20files/page.html' target='viewer'>3.3 Opening and closing files</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.4%20reading%20from%20and%20writing%20to%20a%20file/page.html' target='viewer'>3.4 Reading from and writing to a file</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.4.8%20copy/page.html' target='viewer'>3.4.8 Copy</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.5%20metadata/page.html' target='viewer'>3.5 Metadata</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.6%20addendum/page.html' target='viewer'>3.6 Addendum</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/3.7%20file%20control/page.html' target='viewer'>3.7 File Control</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/module%20quiz/page.html' target='viewer'>Module Quiz</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='low%20level%20i-o/module%20test/page.html' target='viewer'>Module Test</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("f183f118-6cc1-4801-83ac-31dbd83bf4da", true)'>+</a>&nbsp;</tt>Memory and Strings</nobr><br/>
+<div id='f183f118-6cc1-4801-83ac-31dbd83bf4da' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='memory%20and%20strings/4.1%20how%20the%20memory%20is%20used%20and%20how%20to%20de/page.html' target='viewer'>4.1 How the memory is used and how to deal with it</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='memory%20and%20strings/4.2%20manipulating%20memory%20blocks/page.html' target='viewer'>4.2 Manipulating memory blocks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='memory%20and%20strings/4.3%20searching%20strings/page.html' target='viewer'>4.3 Searching Strings</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='memory%20and%20strings/4.4%20sorting%20and%20searching/page.html' target='viewer'>4.4 Sorting and Searching</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='memory%20and%20strings/4.5%20wide%20characters%20and%20wide%20strings/page.html' target='viewer'>4.5 Wide characters and wide strings</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='memory%20and%20strings/module%20quiz/page.html' target='viewer'>Module Quiz</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("bc3fdd5d-4db8-4846-9f49-9557a8a31ccf", true)'>+</a>&nbsp;</tt>Processes and Threads</nobr><br/>
+<div id='bc3fdd5d-4db8-4846-9f49-9557a8a31ccf' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='processes%20and%20threads/5.1%20the%20process%20and%20its%20environment/page.html' target='viewer'>5.1 The process and its environment</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='processes%20and%20threads/5.2%20creating%20processes/page.html' target='viewer'>5.2 Creating processes</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='processes%20and%20threads/5.3%20creating%20processes%20%28windows%29/page.html' target='viewer'>5.3 Creating processes (Windows)</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("c8249373-730d-4ab1-8cec-a234994041d6", false)'>+</a>&nbsp;</tt><a href='trash' target='viewer'>Trash</a></nobr><br/>
+<div id='c8249373-730d-4ab1-8cec-a234994041d6' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='trash/new%20page/page.html' target='viewer'>New Page</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='trash/new%20page%202/page.html' target='viewer'>New Page</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='trash/new%20page%203/page.html' target='viewer'>New Page</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='trash/new%20page%204/page.html' target='viewer'>New Page</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt>New Folder</nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt>New Folder</nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt>New Folder</nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='trash/new%20page%205/page.html' target='viewer'>New Page</a></nobr><br/>
+</div>
+</div>
+</body></html>

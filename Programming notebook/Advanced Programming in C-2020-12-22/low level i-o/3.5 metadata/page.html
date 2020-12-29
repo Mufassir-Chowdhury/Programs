@@ -1,0 +1,110 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.5 Metadata</title>
+</head><body>Metadata is data about a data. For example, the metadata of a file is the file size, permissions and creatation date. Some of the data may be OS dependent.<br/>
+<br/>
+s<tt>tat() </tt>is used to retrieve a file's metadata. It is specifically for Unix, and CL has it's own variant. <br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+This function returns 0 if it is successful and 1 otherwise.<br/>
+The second parameter is a pointer to a special type of pointer which points to a structure consisting a number of fields representing the file's metadata.<br/>
+<br/>
+The st-dev field is an identifier of the device physically storing the file. <br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+The dev_t is a synonym of any int type.<br/>
+<br/>
+The st_ino field is the carrier of the entity dedicated to representing a file/directory and describing the disk location occupied on the media by the physical file. All inodes are identified by unique numbers across the device, not across the whole operating system.<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+The ino_t is a synonym of any int type.<br/>
+<br/>
+The st_mode is a bit field representing the file's permissions. We can put any symbol and use the bitise operator &amp; along with the st_mode field and check if the file has that permission.<br/>
+<br/>
+- <tt>S_IFREG </tt>the file is a regular file.<br/>
+- <tt>S_IFDIR </tt>the file is a a directory.<br/>
+- <tt>S_IRUSR </tt>the owner has read permission.<br/>
+- <tt>S_IWUSR </tt>the owner has write permission.<br/>
+- <tt>S_IXUSR </tt>the owner has execute permission.<br/>
+- <tt>S_IRGRP </tt>the group has read permission.<br/>
+- <tt>S_IWGRP </tt>the group has write permission.<br/>
+- <tt>S_IXGRP </tt>the group has execute permission.<br/>
+- <tt>S_IROTH </tt>others have read permission.<br/>
+- <tt>S_IWOTH </tt>others have write permission.<br/>
+- <tt>S_IXOTH </tt>others have execute permission.<br/>
+<br/>
+<img src="image 4.png"/><br/>
+<br/>
+The st_link field shows the number of hard links of that file. <br/>
+<br/>
+<img src="image 5.png"/><br/>
+<br/>
+The nlink_t is a synonym of int types.<br/>
+<br/>
+The st_uid field contains the ID of the owner of the file.<br/>
+<br/>
+<img src="image 6.png"/><br/>
+<br/>
+The uid_t is a synonym of int types.<br/>
+<br/>
+The st_gid field contains the ID of a group sharing the file.<br/>
+<br/>
+<img src="image 7.png"/><br/>
+<br/>
+The gid_t is a synonym of any int type.<br/>
+<br/>
+The st_rdev field contains a unique ID for a device.<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<br/>
+The dev_t is a synonym of any int type.<br/>
+<br/>
+The st_size field stores the size of the file, measured in bytes. <br/>
+<br/>
+<img src="image 9.png"/><br/>
+<br/>
+The off_t is an int type having the maximum file size as it's largest value.<br/>
+<br/>
+The st_blksize field contains the size of the block being used on the device storing the file.<br/>
+<br/>
+<img src="image 10.png"/><br/>
+<br/>
+The blksize_t is an int type large enough to hold the largest block size.<br/>
+<br/>
+The st_blocks field contains the number of blocks currently allocated to the file.<br/>
+<br/>
+<img src="image 11.png"/><br/>
+<br/>
+The blkcnt_t is an int type large enough to hold the maximum number of blocks.<br/>
+<br/>
+The st_atim, st_mtim, st_ctim represents three times stored in struct timespec.<br/>
+- st_atim stores the time of the very last access to the file.<br/>
+- st_mtim stores the time of the very last change of the file. It also changes st_atim.<br/>
+- st_ctim stores the time of the creation. It may mean the creation, permission modification and ownership changes.<br/>
+<br/>
+<img src="image 12.png"/><br/>
+<br/>
+Now we'll write a program which outputs all the metadata of a file.<br/>
+<br/>
+<img src="image 14.png"/><br/>
+<img src="image 15.png"/><br/>
+<img src="image 13.png"/><br/>
+<br/>
+Microsoft's implementation of <tt>stat() </tt>significantly differs from the original.<br/>
+<br/>
+- The <tt>st_dev </tt>and <tt>st_rdev </tt>fields store the drive number (A: 0, B: 1 etc)<br/>
+- The <tt>st_ino </tt>has no meaning in MS Windows and contains <tt>0<br/>
+</tt>- The <tt><span style="font-size: 10pt">st_mode </span></tt><span style="font-size: 10pt">partially reflects the windows file permission. Note that, the executable attribute is presumed from the file's name.<br/>
+</span><span style="font-size: 10pt">- <tt>st_nlink </tt>is always <tt>1 </tt>on non_NTFS filesystems.<br/>
+- <tt>st_uid </tt>and <tt>st_gid </tt>are always <tt>0.<br/>
+</tt>- <tt>st_blksize </tt>and <tt>st_blocks </tt>are absent in Windows.<br/>
+- The <tt>st_atime </tt>and <tt>st_mtime </tt>fields contain values for NTFS volumes, otherwise copied from <tt>st_ctime.<br/>
+</tt></span><br/>
+The same code except <tt>st_blksize </tt>and <tt>st_blocks </tt>are compiled in Windows.<br/>
+<br/>
+<img src="image 16.png"/><br/>
+</body></html>

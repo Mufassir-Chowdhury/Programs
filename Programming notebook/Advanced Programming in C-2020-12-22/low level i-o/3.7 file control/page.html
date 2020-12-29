@@ -1,0 +1,37 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.7 File Control</title>
+</head><body>We can control the <tt>file descriptor </tt>using <tt>fcntl(). </tt>This is only available in Unix/Linux.<br/>
+<br/>
+There's 3 vaiant of the function:<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+The <tt>F_DUPFD </tt>command is used to make a duplicate file descriptor with the same opened file which allows to operate single file in parallel. There's a function named <tt>dup() </tt>that acts similarly and available in MS Windows.<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<img src="image 3.png"/><br/>
+<br/>
+The third parameter ensures the lower limit of the newly created file descriptor.<br/>
+<br/>
+Now we'll write a program to check the file's status flags.<br/>
+<br/>
+<img src="image 4.png"/><br/>
+<img src="image 5.png"/><br/>
+<br/>
+The macro uses the fact than when the binary &amp;&amp; is used, the second operand is only evaluated when the first operand is true.<br/>
+<br/>
+Now we'll write a program to modify the status flags.<br/>
+<br/>
+<img src="image 6.png"/><br/>
+<img src="image 7.png"/><br/>
+<br/>
+Here we first switch on the <tt>O_APPEND </tt>flag then switch it off then switch it back on.<br/>
+<br/>
+We can dive much deeper by using the <tt>ioctl() </tt>function.<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<br/>
+But this is totally hardware and OS dependent. We won't go more deeper than here.<br/>
+</body></html>

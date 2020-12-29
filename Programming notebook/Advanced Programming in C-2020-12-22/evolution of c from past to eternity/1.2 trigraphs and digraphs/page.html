@@ -1,0 +1,40 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>1.2</title>
+</head><body><b><u><span style="font-size: 16pt">Trigraphs and digraphs<br/>
+</span></u></b><br/>
+Before ASCII, there were too many standards foro character encoding and many of them didn't include many characters used in C.<br/>
+The EBCDIC encoding didn't have square brackets. So, they used to write<br/>
+<tt><br/>
+	int main(int argc, char **argv){return 1;}<br/>
+</tt><br/>
+instead of <br/>
+<br/>
+<tt>	int main(int argc, char *argv[]){return 1;}<br/>
+<br/>
+</tt>To avoid such contradictions, the special characters used to be expressed dusing specially defined sequences of characters as extended language definition.<br/>
+<br/>
+The choice was a three-character-long sequence was called <b>trigraph.<br/>
+</b><br/>
+<div style="text-align: center"><img height="200" src="2020-09-10 15_00_09-pv_ coursedatas.png" width="300"/></div><br/>
+<br/>
+So, the code above can be written as, <br/>
+<br/>
+	<tt>int main(int argc, char *argv??(??))??&lt;return 1; ??&gt;<br/>
+</tt><tt><br/>
+</tt>Another switch has to be added in order to compile<br/>
+<br/>
+	<tt>gcc -trigraphs example.c<br/>
+</tt><tt><br/>
+</tt>Later, trigraphs has been replaced by digraphs which consists of two characters.<br/>
+<br/>
+<div style="text-align: center"><img height="118" src="image.png" width="300"/><br/>
+<br/>
+</div><div style="text-align: left">No switch is necessary for digraphs.<br/>
+</div><ul><div style="text-align: left"><li><b>Preprocessor </b>converts trigraphs</li>
+<li><b>Compiler </b>converts digraphs</li>
+<li>Trigraphs are recognized inside string literals (you can use escape sequence \? or use separately)</li>
+</div><li><div style="text-align: left">Digraphs aren't recognized inside strings.</div></li>
+</ul>
+</body></html>

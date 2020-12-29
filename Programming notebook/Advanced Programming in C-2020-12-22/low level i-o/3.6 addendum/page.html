@@ -1,0 +1,80 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.6 Addendum</title>
+</head><body>A soft link is a very special kind of file designed to store information about other file's location. This link may be used like the original, linked file.<br/>
+<br/>
+In Unix, following command is used to create a soft link:<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+<tt>readlink </tt>shows the actual file<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+<tt>rm </tt>deletes the link<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+Soft link can be created by <tt>symlink() </tt>at API level. <br/>
+<br/>
+<img src="image 4.png"/><br/>
+<br/>
+This function returns <tt>0 </tt>as success and <tt>-1 </tt>as failure.<br/>
+<br/>
+Let's create a program to generate soft links.<br/>
+<br/>
+<img src="image 5.png"/><br/>
+<img src="image 6.png"/><br/>
+<br/>
+The <tt>readlink() </tt>finds the actual file's name.<br/>
+<br/>
+<img src="image 7.png"/><br/>
+<br/>
+The function returns the length of the resulting name. It doesn't put a <tt>\0 </tt>at the end.<br/>
+<br/>
+Now we'll create a simplified version of the <tt>readlink </tt>system command.<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<img src="image 9.png"/><br/>
+<br/>
+<br/>
+<span style="font-size: 10pt">The removal of a link is performed by <tt>unlink().<br/>
+</tt><tt><br/>
+</tt><img src="image 10.png"/><tt><br/>
+</tt><tt><br/>
+</tt>Now we'll write a program to delete links.<br/>
+<br/>
+<img src="image.png"/><br/>
+<img src="image.png"/><br/>
+<img src="image 11.png"/><br/>
+<img src="image 12.png"/><br/>
+<tt><br/>
+</tt><tt>lstat() </tt>is used here instead of <tt>stat() </tt>because <tt>stat() </tt>can't distinguish between real file and soft links.<br/>
+<br/>
+Now we're going to see how soft links are created in Windows.<br/>
+<br/>
+At system command level, <tt>MKLINK </tt>is used to create softlink and <tt>DEL </tt>is used to delete. There is no equivalent of <tt>readlink</tt>in Windows.<br/>
+<br/>
+<img src="image 13.png"/><br/>
+<br/>
+<br/>
+<img src="image 14.png"/><br/>
+<br/>
+Now we'll write a program to create a soft link.<br/>
+<br/>
+<img height="502" src="image 15.png" width="1000"/><br/>
+<img src="image 16.png"/><br/>
+<br/>
+Here, we include <tt>windows.h</tt>header and define a special symbol to use <tt>GetFileAttributes() </tt>function. This function is an alternative of <tt>stat() </tt>for windows. We check if the file attribute is valid and is a general file. Then we create the soft link by <tt>CreateSymbolicLink()</tt>. We use the native windows function <tt>FormatMessage() </tt>to show the error message and get the error code by <tt>GetLastError()</tt>.<br/>
+Administrator rights is required for this operation.<br/>
+<br/>
+Now we'll create a program to delete a symbolic link.<br/>
+<br/>
+<img src="image 18.png"/><br/>
+<img src="image 17.png"/><br/>
+<br/>
+The <tt>DeleteFile() </tt>is used to delete a symbolic link.<br/>
+<br/>
+<br/>
+</span><img src="image.png"/></body></html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>5.2 Creating processes</title>
+</head><body>To create and run a process to run concurrently with the parent, we need <tt>fork()</tt>funciton. It freezes your processes, makes a clone and wakes both of them up. It returns <tt>-1 </tt>if the function failed, zero when succeeded and a value greated than zero when it succeeded and you have a parent. <br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+When a process is forked, it creates a duplicate of it's current status including the data it contains but not the segment code as it's immutable. <br/>
+<br/>
+You can put a process to sleep using <tt>sleep() </tt>function. It sleeps at least <tt>secs</tt>seconds if no signal occurs. It returns zero if the time has elapsed or non-zero if the sleep is disturbed and shows how many seconds are left. <br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+The <tt>getpid() </tt>function is used to get the PID of the invoking process. <br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+The <tt>wait() </tt>function waits until any of the process's children completes. If it is invoked with <tt>NULL</tt>if we don't want to know the child's exit status and pointer to an int otherwise. It returns -1 on error and PID of the child otherwise. <br/>
+<br/>
+<img src="image 4.png"/><br/>
+<br/>
+Let's try this out-<br/>
+<br/>
+<img src="image 5.png"/><br/>
+<img src="image 6.png"/><br/>
+<br/>
+The <tt>waitpid() </tt>waits until the specified PID finishes. The <tt>PID </tt>is set to zero if it waits for any child. <br/>
+<br/>
+<img src="image 7.png"/><b><br/>
+</b><b><br/>
+</b>There are a few functions to load an executable code into the memory. The replace the executable code of the invoker. That means the invoker is removed from the memory and the invokee does not return to it. <br/>
+<br/>
+<img src="image 8.png"/><br/>
+<br/>
+The l suffix means the function uses a variadic argument and must be ended with NULL. The p suffix means that the function will search for the program in PATH variable. The e suffux means the function will create a new environment specified in the parameter. If no environment is specified, the function copies it from the invoker. The v suffix says that the function doen's use a variadic list, but uses an array. <br/>
+<br/>
+<img src="image 9.png"/><br/>
+<img src="image 10.png"/><br/>
+<br/>
+</body></html>

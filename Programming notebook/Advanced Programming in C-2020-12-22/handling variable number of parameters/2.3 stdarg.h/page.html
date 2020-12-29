@@ -1,0 +1,45 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>2.3 stdarg.h</title>
+</head><body>Programmers must include <tt>stdarg.h</tt>to use variable number of arguments.<br/>
+<br/>
+The routine for accessing the variadic part is:<br/>
+- The location inside the stack has to be <b>found </b>and <b>remembered.</b><br/>
+- Each of the variable part's parameters has to be <b>located </b>and <b>fetched individually </b>for further processing.<br/>
+- Parameters may be accessed in a<b>sequential way only</b>.<br/>
+- Retreating to any previously processed parameters is prohibited too.<br/>
+- It's possible to reset the processing of the parameters.<br/>
+- There is no way for the invokee to determine the length of a variable part.<br/>
+<br/>
+We'll write a program to calculate the sum of the provided parameters. 500,130 650, 150<br/>
+<br/>
+<img height="150" src="2020-09-11 17_14_54-● ss.c - programs -.png" width="900"/><br/>
+<br/>
+<br/>
+There are two ways to know the number of arguments: use one of the parameters from the fixed part and to put a specific calue at the end of the variable part. Printf function uses the first one, we'll do it too.<br/>
+<br/>
+At first, we'll declare a variable of a spacial type named <tt>va_list</tt>.<br/>
+<br/>
+<img src="2020-09-11 17_16_02-● ss.c - programs -.png"/><br/>
+<br/>
+Now we need to associate the new <tt>va_list</tt>variable with the variable parameters with <tt>va_start()</tt>. This expects two argumets: the name of the <b>list </b>to associate and the name of he last <b>parameter </b>in the fixed part. The stack pointer points to the variable parameter by accessing the index next to the last fixed parameter because the parameters sit together.<br/>
+<br/>
+<img src="2020-09-11 17_16_53-● ss.c - programs -.png"/><br/>
+<br/>
+Now we want to get n values from the variable part. We'll loop through n parameters. We'll use <tt>va_arg() </tt>to travarse the variable part. The name of the list initialized by <tt>va_start() </tt>and the type name being fetched should be passed as parameters. It derefernces the pointer of <tt>va_list </tt>type and updates the pointer.<br/>
+<br/>
+<img src="2020-09-11 17_18_00-● ss.c - programs -.png"/><br/>
+<br/>
+The routine requires the list to be ended using <tt>va_end()</tt>.<br/>
+<br/>
+<img src="2020-09-11 17_19_03-● ss.c - programs -.png"/><br/>
+<br/>
+We add the main function to test our code.<br/>
+<br/>
+<img src="2020-09-11 17_20_01-variable number of a.png"/><br/>
+<br/>
+<img height="105" src="2020-09-11 17_12_29-variable number of a.png" width="900"/><br/>
+<br/>
+<br/>
+</body></html>

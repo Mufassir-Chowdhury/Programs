@@ -1,0 +1,25 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>2.2 Ellipsis</title>
+</head><body>A variable number of parameters is handled in C at two levels:<br/>
+- Higher level: At the language's syntax level. Which tells the compiler about the speccial feature.<br/>
+- Lower level: At the execution environment level. Which physically accesses the parameters.<br/>
+<br/>
+Three dots named ellipsis is used to indicate the variable part. <br/>
+<br/>
+Rules:<br/>
+<br/>
+1. The ellipsis must the the last element of a prameter's list.<br/>
+<br/>
+2. The ellipsis mustn't be the only element of a parameter's list.<br/>
+<br/>
+3. The ellipsis must be used only once.<br/>
+<br/>
+- A function with variable number of arguments is called a <b>variadic </b>function. <br/>
+- All parameters from the fixed part is called the <b>fixed paramteres</b>.<br/>
+- All parameters hiding in the ellipsis is called the <b>variable part </b>.<br/>
+<br/>
+For example, the syntax for <tt>printf() </tt>function is,<br/>
+<br/>
+	<tt>extern int printf(const char *__restrict --format, ...);</tt></body></html>

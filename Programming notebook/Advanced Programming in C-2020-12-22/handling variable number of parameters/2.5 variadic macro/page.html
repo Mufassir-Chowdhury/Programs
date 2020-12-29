@@ -1,0 +1,24 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>2.5 variadic macro</title>
+</head><body>Macros can also be variadic.<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+They may not have the fixed part at all!<br/>
+<br/>
+<tt>__VA_ARGS__ </tt>contains everything passed as variable parameters.<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+This is only available in function like macros and it may only be used after an ellipsis has appeared.<br/>
+Fixed part can be added as the normal function form.<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+A # can be applied to <tt>__VA_ARGS__</tt><br/>
+<br/>
+<img src="image 4.png"/><br/>
+<br/>
+This prints out everything in the ellipsis as it is.</body></html>

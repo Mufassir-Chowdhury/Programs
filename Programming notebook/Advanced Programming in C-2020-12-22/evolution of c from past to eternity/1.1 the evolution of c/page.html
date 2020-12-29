@@ -1,0 +1,49 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>1.1</title>
+</head><body>- Every Language <b>evolves</b><br/>
+- The evolution of programming language is under <b>continuous control<br/>
+</b><b>- </b>The new version of programming language has <b>backward compatibility<br/>
+</b>The reasons of evolution of programming language are-<ul><li><b>Computer architecture has changed</b></li>
+<li style="list-style-type: none"><ul><b><li style="list-style-type: none">- Longer and precise data types have appeared</li>
+</b></ul>
+</li>
+<b><li>Some language elements are inconvenient or confusing</li>
+</b><li><b>New programming techniques have appeared in the meantime</b></li>
+</ul>
+<br/>
+<span style="font-size: 14pt"><b><u>CREATION</u></b></span><br/>
+<br/>
+- In the first few days, the authors focused stricly on to create a tool for easy implementation of a new operation system.<br/>
+- Designed for PDP-11<br/>
+<tt><br/>
+</tt>EVOLUTION:<br/>
+<br/>
+Few language concepts were inconvenient. For example, data initializers looked like<br/>
+<br/>
+	<tt>int count(1);<br/>
+</tt><br/>
+instead of<br/>
+<br/>
+	<tt>int count = 1;<br/>
+</tt><br/>
+which was identical to function invocation. Function invocation was different too. Like,<br/>
+<br/>
+	<tt>int function(n) int n;{}<br/>
+</tt><tt><br/>
+</tt>instead of <br/>
+<br/>
+	<tt>int function(int n){}<br/>
+</tt><tt><br/>
+</tt>though both practice are accepted. But, for the older one, the compiler doesn't check if the numbers and types of the argument is right or wrong. The following three invocations will be compiles.<br/>
+<ul><li style="list-style-type: none"><tt>function();</tt>	</li>
+<tt><li style="list-style-type: none">function(1);</li>
+<li style="list-style-type: none">function(1, 2);</li>
+</tt></ul>
+<tt> <br/>
+</tt>The extra arguments will be ignored and the missing ones will have garbage values.<br/>
+<br/>
+That's why one should use void instead of empty paranthesis. Because, the compiler will consider it to be written in old style instead.<br/>
+<br/>
+In the time of creation, a <b>process </b>was the smallest and indivisible part of a code. Then, a new unit appeared which was was lighter than process and was named <b>thread</b>.</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>2.3.7 Practice strcat</title>
+</head><body>Let's make a function that concatenates all the given strings together.<br/>
+<br/>
+The function must be invoked with atleast a char * pointer and must have a NULL pointer at the end.<br/>
+<br/>
+- We have to declare and initialize two variables. One for counting the length of the final string and another one for concatenating.<br/>
+<br/>
+<img height="322" src="image.png" width="1000"/><br/>
+<br/>
+We use va_copy to copy the content of one va_list to another.<br/>
+Then we use a loop to measure the length.<br/>
+<br/>
+<img height="544" src="image 2.png" width="1000"/><br/>
+<br/>
+Then we allocate the memory required and add each string at the end of another string.<br/>
+<br/>
+<img height="888" src="image 3.png" width="1000"/><br/>
+<br/>
+Then we write a main function and test our function.<br/>
+<br/>
+<img height="300" src="image 4.png" width="1000"/><br/>
+<img src="image 5.png"/><br/>
+</body></html>

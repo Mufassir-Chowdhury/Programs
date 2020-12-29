@@ -1,0 +1,19 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>2.1 Calling conventions</title>
+</head><body>- <b>Caller </b>or <b>Invoker </b>is a <b>function which calls another function. </b>This is responsible for preparing arguments and receiving the result.<br/>
+- <b>Callee </b>or <b>Invokee </b>is a <b>function being called. </b>This is responsible for intercepting arguments, associating them with parameters, and preparing and returning the result.<br/>
+- The way in which <b>caller </b>and <b>callee </b>communicates is called the <b>calling convention.<br/>
+</b><b><br/>
+</b>A separate part of the memory named <b>stack </b>is used to transfer argumment values from caller to callee. Processor provides at least two instructions named <tt>push </tt>and <tt>pop </tt>to <b>put a value on a stack </b>and to <b>get a value from the stack.<br/>
+</b><b><br/>
+</b>The <b>caller </b>pushes the argument on the stack, the <b>callee </b>makes use of them, and someone removes them from the stac.<br/>
+<br/>
+The arguments may be pushed in the order of the passed arguments and the callee may be responsible for cleaning the stacks. This convention is called <b>Pascal </b>and avoided in modern C compilers.<br/>
+<br/>
+The arguments may be pushed in the order of the passed arguments and the caller may be responsible for cleaning the stacks. This convention is called <b>stdcall. <br/>
+</b><b><br/>
+</b>The arguments may be pushed in the opposite order of the passed arguments and the caller may be responsible for cleaning the stack. This convention is called <b>cdecl.<br/>
+</b><b><br/>
+</b></body></html>

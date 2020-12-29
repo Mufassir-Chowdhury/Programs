@@ -1,0 +1,54 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.4 Reading from and writing to a file</title>
+</head><body>Reading from a file is done by <tt>read()</tt><br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+The count mustn't be arbitratily large. If the function returns -1, the reading has been unsuccessful. The errno will tell more about that. This function doesn't carry out converstions or translations. <br/>
+<br/>
+Writing to a file is done by <span style="font-family: monospace"><tt>write()</tt></span><br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+The count mustn't be arbitratily large. If the function returns -1, the reading has been unsuccessful. The errno will tell more about that. This function doesn't carry out converstions or translations. <br/>
+<br/>
+Now we write a simple program to write to a file.<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<img src="image 4.png"/><br/>
+<br/>
+Now we write a program to write to a file.<br/>
+<br/>
+<img src="image 5.png"/><br/>
+<img src="image 6.png"/><br/>
+<br/>
+We can also access random places of a file. We do that by using <tt>lseek() </tt>which can modify the file pointer.<br/>
+<br/>
+<img src="image 7.png"/><br/>
+<br/>
+off_t is and int-like type holding the largest acceptable file size. The offset is the length of byte to move the file pointer. The whence tells where to start counting the offset.<br/>
+<br/>
+- <tt>SEEK_SET </tt>move the file pointer to the offset location.<br/>
+- <tt>SEEK_CUR </tt>move the file pointer relative to current position.<br/>
+- <tt>SEEK_END </tt>move the file from the relative to the end. <br/>
+<br/>
+This function returns the final position or -1 if something goes wrong.<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<img src="image 9.png"/><br/>
+<br/>
+This shows that you can seek to a position further away from the end. <br/>
+<br/>
+<tt>dprintf() </tt>can be used instead of <tt>fprintf() </tt>but it uses the file descriptor. And there's no <tt>dscanf() </tt>available. <br/>
+<br/>
+<img src="image 10.png"/><br/>
+<br/>
+Now we'll implement a simple copy function which copies the content of a file to another. <br/>
+<br/>
+<img src="image 11.png"/><br/>
+<img src="image 12.png"/><br/>
+<img src="image 13.png"/><br/>
+<br/>
+</body></html>

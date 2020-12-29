@@ -1,0 +1,91 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>4.2 Manipulating memory blocks</title>
+</head><body>&quot;C&quot; programming language offers a wide range of functions to manipulate memory. We can divide them into four groups.<ul><li><b>Copying</b></li>
+<b><li>Settings</li>
+<li>Comparing</li>
+<li>Searching</li>
+</b></ul>
+<b><br/>
+</b>These treat memory as a contiguous set of bytes and can't distinguish between statically and dynamically allocated memory and don't notice boundaries and variable sizes. This makes them very powerful and very dangerous.<br/>
+<br/>
+The most basic function is <tt>memcpy() </tt>which copies n bytes from source to destination and returns nothing.<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+Here's an example.<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<img src="image 3.png"/><br/>
+<br/>
+The <tt>memcpy() </tt>can do much more like copying structures and even arrays of structures. <br/>
+<br/>
+<img src="image 4.png"/><br/>
+<img src="image 5.png"/><br/>
+<br/>
+We can even copy a part of the memory.<br/>
+<br/>
+<img src="image 6.png"/><br/>
+<img src="image 7.png"/><br/>
+<br/>
+But <tt>memcpy() </tt>acts strangly when the source and destination overlaps. That's why we use <tt>memmove()</tt>. It's the same as <tt>memcpy() </tt>but can detect when memory blocks overlap.<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<br/>
+Let's test it.<br/>
+<br/>
+<img src="image 9.png"/><br/>
+<img src="image 10.png"/><br/>
+<br/>
+The <tt>memccpy() </tt>can't detect overlapping blocks, but stops immendiately after any of the copied bytes is equal to c.<br/>
+<br/>
+<img src="image 11.png"/><br/>
+<br/>
+This function returns the pointer next to c.<br/>
+<br/>
+<img src="image 12.png"/><br/>
+<img src="image 13.png"/><br/>
+<br/>
+But,<br/>
+<br/>
+<img src="image 14.png"/><br/>
+<img src="image 15.png"/><br/>
+<br/>
+Though the array doesn't have a zero, then why it stopped? Because it found a <b>byte </b>which is zero. That's because of the little endian processor.<br/>
+<br/>
+The <tt>memset() </tt>sets a memory block with a byte of a chosen value. <br/>
+<br/>
+<img src="image 16.png"/><br/>
+<br/>
+The function uses c as <tt>unsigned char</tt>, not <tt>int</tt>. This function returns nothing.<br/>
+<br/>
+A simple example would be- <br/>
+<br/>
+<img src="image 17.png"/><br/>
+<img src="image 18.png"/><br/>
+<br/>
+But if we try to fill in ints we get-<br/>
+<br/>
+<img src="image 19.png"/><br/>
+<img src="image 20.png"/><br/>
+<br/>
+The short int takes two bytes of memory but the second argument is char type which takes one byte. So, writing 1 in each byte results in <tt>0x0101 </tt>in short int which is equal to 257 in decimal.<br/>
+<br/>
+There's a function <tt>bzero() </tt>to set all of memory to zero, but that is not a standard function.<br/>
+<br/>
+The <tt>memcmp() </tt>is used to compare two memory blocks byte by byte. The function returns 0 when identical, positive when s1 is greater than s2 and negative oterwise.<br/>
+<br/>
+<img src="image 21.png"/><br/>
+<br/>
+There's no way to know which byte is different. This function can be used to any type of data.<br/>
+<br/>
+The <tt>memchr() </tt>function scans the first n bytes pointed by s, searching for c. The c is treated as an <tt>unsigned char. </tt>The function returns a pointer to a byte containing c and NULL otherwise.<br/>
+<br/>
+<img src="image 22.png"/><br/>
+<br/>
+Some of the &quot;C&quot; language implementations include a function named <tt>memrchr() </tt>which does the same thing but starts from the end of the block. The functin is not a part of &quot;C&quot; language standard.<br/>
+<br/>
+<img src="image 23.png"/><br/>
+<br/>
+</body></html>

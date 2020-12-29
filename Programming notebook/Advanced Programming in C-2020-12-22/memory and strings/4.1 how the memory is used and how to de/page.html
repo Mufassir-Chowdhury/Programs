@@ -1,0 +1,75 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>4.1 How the memory is used and how to deal with it</title>
+</head><body>The memory space the operating system is able to use may be larger than the physical memory present in your computer. This is made possible by the <b>virtual memory </b>of the OS. This memory is divided into two parts:<br/>
+<ul><li><b>The kernel space - </b>this is where the OS kernel resides. This part includes the kernel's code, file buffers, caches, control blocks etc. This part is unavailable to the processes. They can only invoke the services it provides.</li>
+<li><b>The user space </b>- This is where processes work. The OS is capable of manipulating the processes memories, but not vice varsa. The processes can't involve in other process's memory.</li>
+</ul>
+<br/>
+The user space is divided among all the processes. This is very dynamic as processes are created, and destroyed all the time and they sometimes require more space from OS. The virtual memory consists of pages, and OS manages the pages without disturbing the whole system.<br/>
+<br/>
+The process's space is divided into four parts:<br/>
+<ul><li><b>Text</b>- name and executable code.</li>
+<li><b>Data </b>- nonautomatic (static) data.</li>
+<li><b>Stack </b>- permanently growing and shrinking part storing automatic data.</li>
+<li><b>Heap </b>- dynamic data.</li>
+</ul>
+<br/>
+The stack grows toward the heap and the heap grows toward the stack. The programmer can only manage the heap.<br/>
+<br/>
+There are functions to manage the heap memory pool. The mechanism differs from compiler to compiler. The allocator is a very sophisticated software but some &quot;c&quot; implementations allow to replace the built-in allocator with their own algorithms i.e. hooks in gcc (hook is a pointer to a function which is automatically invoked every time an event occurs. The gcc also have a function named <tt>mallopt() </tt>to configure the built-in allocator.<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+The <tt>size_t </tt>is an <tt>unsigned int </tt>long enough to specify the maximal size of an entity, The <tt>malloc() </tt>function returns a void pointer is successful and <tt>NULL </tt>pointer otherwise. The allocated memory may have garbage value. <br/>
+<br/>
+Now we'll write a program to allocate smallest memory block possible and check the alignment. <br/>
+<br/>
+<img src="image 2.png"/><br/>
+<img src="image 3.png"/><br/>
+<br/>
+The result differs significantly in other compilers.<br/>
+<br/>
+The <tt>free() </tt>function deallocates previously allocated memory. Same block of memory shouldn't be freed more than once. This function returns nothing. Any memory not freed will be automatically relesased when your program exits. But not freeing up memory in big and complex programs may result in memory leak which is very difficult to find. <br/>
+<br/>
+The <tt>calloc() </tt>function is a better version of<tt>malloc()</tt>. We have to provide number of memory blocks and the size of each block. The whole memory block is filled with zeros. <br/>
+<br/>
+<img src="image 4.png"/><br/>
+<img height="76" src="image 5.png" width="1000"/><br/>
+<br/>
+This shows the difference between these two functions.<br/>
+<br/>
+The <tt>realloc() </tt>function changes the size of the previously allocated pointer. If the new size is bigger, the newly allocated memory is not initialized. If the size is zero, it acts like <tt>free()</tt>. The function returns <tt>NULL </tt>on error and the old memory block remains untouched. <br/>
+<br/>
+Let's examine the behaviour of <tt>realloc().<br/>
+</tt><tt><br/>
+</tt><img src="image 6.png"/><tt><br/>
+</tt><img src="image 7.png"/><tt><br/>
+</tt><tt><br/>
+</tt>This shows the fact that the newly allocated memory have garbage value and the old memories have the same value as before.<br/>
+<br/>
+There are several functions that allocate memory silently, and <b>has to be freed explicitly</b>. One of these function is <tt>strdup()</tt>which duplicates a string. It allocates the length of the source string plus one and copies the original string to the newly allocated block and returns a pointer to it. <br/>
+<br/>
+The following program shows how it works.<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<img src="image 9.png"/><br/>
+<br/>
+This shows that both the string is the same but the region is not the same.<br/>
+<br/>
+Other fucntions of this kind are <tt>asprintf() </tt>and <tt>vasprintf() </tt>which is same as <tt>sprintf() </tt>and <tt>vsprintf() </tt>but this allocates the memory themselves. These functions are not standard functions set. <br/>
+<br/>
+<img src="image 10.png"/><br/>
+<br/>
+We should implement these functions ourselves. But we have to know two more funtions before that. <br/>
+<br/>
+<img src="image 11.png"/><br/>
+<br/>
+This does the same thing as the 2 functions above but writes <tt>size </tt>number of bytes only. If we provide NULL and zero for the first two arguments, the function returns the size of the memory required for format without allocating memory.<br/>
+<br/>
+<img src="image 12.png"/><br/>
+<img src="image 13.png"/><br/>
+<br/>
+<br/>
+</body></html>

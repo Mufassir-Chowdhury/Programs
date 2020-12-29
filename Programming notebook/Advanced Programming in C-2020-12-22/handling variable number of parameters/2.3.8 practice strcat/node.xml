@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>2.3.8 Practice strcat</string>
+  <key>nodeid</key><string>c687d5cb-0f1e-4b8d-8189-86879b5db1f0</string>
+  <key>modified_time</key><integer>1600098499</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1599898702</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>3</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

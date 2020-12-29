@@ -1,0 +1,52 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>4.5 Wide characters and wide strings</title>
+</head><body>The standard &quot;C&quot; language type <tt>char </tt>is designed to store and process using 8 bits that hold 256 characters. The first 128 characters are used for latin alphabet. The rest 128 can't give enough space to hold all of the characters of the languages around the world. A code point is a number which represents a character. So, the ASCII code consists of 128 code points. But we can set the higher half to identify different language which is called code page. This code page consists of 128 higher code points. This means the same code point can represent different characters for different code pages. So, this may be ambiguous. <br/>
+<br/>
+The concept that solved the problem was Unicode. This assigns unique characters to more than a million code points. <br/>
+<br/>
+But the unicode only names all the characters, but doesn't say how to work with them. There are more than one standard for this. <br/>
+The most general is UCS-4. (Universal Character Set). But this mode always uses 32 bits and each number should be stored as a big-endian multibyte value, or should start from the BOM (byte order mark) otherwise. So, this method is not efficient. <br/>
+One of the most commonly used method is UTF-8. (Unicode Transformation Format). This uses as many bits as it needs. Like, 8 bits for latin, 16 bits for non-latin and 24 for China-Japan-Korea ideograms. This method is endianness-independent. <br/>
+<br/>
+A <tt>char </tt>value that contains a number of bits big enough to store all Unicode points is called a <tt>wide char</tt>. The 1,114,112 code points can be represented by 21 bits but that is not effective. That's why 32 bits instead. But the ones not using CJK ideographs can work with 16 bits. <br/>
+<br/>
+To program using UTF-8, we have to use UTF-8 aware editor. To compile these programs, we have to use UTF-8 aware compiler. The CL of version 19 and higher requires a dedicated option named <tt>/utf8</tt>. To see the output, we need to use a console which is UTF-8 aware and uses UTF-8 aware font. The MS Windows cmd.exe console must be prepared first-<br/>
+- Has to use a dedicated UTF-8 font (like Lucida Console)<br/>
+- Must be set to UTF-8 mode by issuing:<br/>
+<tt>	<br/>
+	chcp65001<br/>
+<br/>
+</tt>- A program wanting to send UTF-8 coded string needs to prepare the stdout stream of it by invoking a dedicated function:<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+To use wide characters, we have to<tt/>include <tt>wchar.h</tt><br/>
+<br/>
+Two types form the basis for wide char-<br/>
+- <tt>wchar_t </tt><br/>
+- <tt>wint<span style="font-size: 10pt">_t </span></tt><span style="font-size: 10pt">which is int able to store <tt>wchar_t </tt>as integers and WEOF value which is replacement for the regular EOF constant.<br/>
+</span><span style="font-size: 10pt"><br/>
+</span><img src="image 2.png"/><span style="font-size: 10pt"><br/>
+</span><img src="image 3.png"/><span style="font-size: 10pt"><br/>
+</span><span style="font-size: 10pt"><br/>
+</span>But gcc outputs 4 4. <br/>
+<br/>
+We can use a wide character like this - <tt>L'x', u'x' </tt>or <tt>U'x' </tt>where x is a wide character. Or we can use the use the hexadecimal digit directly like: <tt>\uxxxx </tt>or <tt>\Uxxxxxxxx</tt>. The \u prefix needs four hexadecimal digits to represent code points not longer than 16 bits, and \U otherwise.<br/>
+<br/>
+The <tt>wctype.h </tt>header is a replacement for the regular <tt>ctype.h </tt>header. Some of the functions provided are:<br/>
+- <tt>int iswalnum(wint_t wc) </tt>to check alphanumeric character.<br/>
+- <tt>int iswalpha(wint_t wc) </tt>to check alphabetical character. <br/>
+- <tt>int iswblack(wint_t wc) </tt>to check white space.<br/>
+- <tt>int iswdigit(wint_t wc) </tt>to check digits.<br/>
+- <tt>int iswlower(wint_t wc) </tt>to check lower-case letter.<br/>
+- <tt>int iswupper(wint_t wc) </tt>to check upper-case letter.<br/>
+- <tt>wint_t lowlower(wint_t wc) </tt>to convert to lower-case.<br/>
+- <tt>wint_t lowupper(wint_t wc) </tt>to convert to upper-case.<br/>
+<br/>
+In order to make these work, we have to enable <tt>locale</tt>. To do this we have to include <tt>locale.h </tt>and invoke a function like this:<br/>
+<br/>
+	<tt>setlocale(LC_ALL, &quot;&quot;);<br/>
+</tt><tt><br/>
+</tt></body></html>

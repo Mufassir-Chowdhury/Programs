@@ -1,0 +1,47 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>1.4 New keywords and capabilities</title>
+</head><body><tt>_Noreturn </tt>keyword<br/>
+<br/>
+This keyword is a function specifier. It tells the compiler that the function will not return to its invoker, so the compiler gets ready for the consequences. For example, <tt>exit()</tt>function doesn't return to the invoker.<br/>
+<b><br/>
+CL 19.x doesn't support this keyword<br/>
+<br/>
+</b><tt>_Bool </tt>keyword<br/>
+<br/>
+This introduces a new data type to store only 0 and 1 representing true and false. This uses a single bit. Used in expressions, this type is treated as unsigned ints. Any nonzero values when converted to a _Bool type is treated as 0.<br/>
+N.B: There are no additional keywords for representing literals for true or false.<br/>
+<br/>
+<tt>_Exit </tt>function<br/>
+<br/>
+This function is a more powerful function than <tt>exit()</tt>though it stills needs te header <tt>stdlib.h</tt>to be included. Another function named <tt>atexit()</tt>calls the provided function(s) when <tt>exit() </tt>is called. But, <tt>_Exit()</tt>forces the program to tarminate without calling functions using <tt>atexit()</tt><br/>
+<br/>
+<tt>_Generic </tt>keyword<br/>
+<br/>
+This was added in C11 and named generic selection. It decides which entity should be chosen depending on the expression's type. The form is,<br/>
+<tt>	_Generic(selector, type1: item1, type2: item2, ... , default: itemn)<br/>
+</tt>The default branch is optional.<br/>
+<br/>
+<b>CL 19.x doesn't support this keyword<br/>
+<br/>
+</b><tt>__func__ </tt>symbol<br/>
+<br/>
+C11 added a new symbol <tt>__func__ </tt>alongside others like <tt>__FILE__ </tt>and <tt>__LINE__</tt>. This symbol represents a string containing the name of the enclosing function.<br/>
+<br/>
+<tt>_Complex </tt>keyword<br/>
+<br/>
+This keyword refers to the complex numbers from mathematics. It is a synonym of <tt>double _Complex </tt>but can be used with conjuction of <tt>float </tt>or <tt>long double</tt>. The imaginary part contains an <tt>i </tt>suffix. The mathematical operators works fine with complex numbers and few other complex fariants is added to some commonly used functions. I.e,: <tt>cabs(), cexp(), sqrt()</tt>and so on. Complex numbers are easier to use with complex.h header.<br/>
+<br/>
+<b>CL 19.x doesn't support this keyword<br/>
+Neither <tt>scanf() </tt>nor <tt>printf()</tt>have specific support for inputting/ouputting complex.<br/>
+<br/>
+</b><tt>_Alignof </tt>and <tt>_Alignas </tt>keywords<br/>
+<br/>
+These keyword uses data alignment to add padding to the data memory to store the memory in a provided style to speed up the memory access speed for specific <b><br/>
+</b><b><br/>
+CL 19.x doesn't support this keyword (for C)<br/>
+<br/>
+</b><tt>_Pragma </tt>preprocessor operator<br/>
+<br/>
+This operator lets programmers to use pragmas inside macros.</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.1 API and ABI</title>
+</head><body>APISs (as in Application Programming Interface) is a set of standards adn protocols used to effectively and safely create new programs compatible with already existing programs. The term refers to the source code only, not at binary level.<br/>
+<br/>
+Two famous APIs are:<br/>
+<br/>
+1. POSIX: <br/>
+<br/>
+It stands for Portable Operating System Interface for Unix. This is for unix-like systems. This is more than an API. Many of the &quot;C&quot; language standards are also covered. <br/>
+<br/>
+2. Windows API:<br/>
+<br/>
+A set of analogous conventions for Wndows environments. It's more complex than POSIX.<br/>
+<br/>
+In fact, every programmer defines his/her own API when creating a new project. <br/>
+<br/>
+ABIs (as in Application Binary Interface) is a set of standards, but for binary level. API doesn't tell about how it interacts with operating system's services, but ABI does and ABI is no way dependent on the API. API is portable but ABI is system dependent. <br/>
+<br/>
+The current chapter deals with the lowest level of input/output in &quot;C&quot; language. This is where the code directly contacts with the operating system. In fact, all the functions for I/O operations are wrappers of corresponding OS services. These functions may not be compatible in other OSs. Most of the function we're going to discuss come from the <tt>unistd.h </tt>header file. <br/>
+<br/>
+The file functions we use, for example <tt>fopen(), fread(), fwrite(), fcolse()</tt>, are quite high level. Many things happen in between these functions and the physical input/output.<br/>
+- Data buffering occurs: When data is read or written, an intermediate layer is created called buffer loads chunks of memory instead of Loading full file. This causes two affects: read as soon as possible, write as late as possible. The latter action is called &quot;readahead&quot; and the former is called &quot;write-behind&quot;. You can control some of it's properties using <tt>setvubf() and flush() </tt>but you can not turn it off. <br/>
+- Line Translation occurs: <tt>fgets() </tt>performs a readahead to get a portion of data until an endlinef occurs and <tt>fputs() </tt>puts the data until the sector is full. <br/>
+- Data translation occurs: <tt>fprintf() </tt>and <tt>fread() </tt>must convert data from internal representation to a human-readable form and back.<br/>
+<br/>
+<br/>
+Let's create a program to create a temporary file, write two bytes, close and repen and read two bytes and then close again. Output the containing memory and remove the temporary file. <br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+Now we'll rewrite the code using low level functions only (except sprintf).<br/>
+<img src="image 2.png"/><br/>
+<img src="image 3.png"/><br/>
+</body></html>

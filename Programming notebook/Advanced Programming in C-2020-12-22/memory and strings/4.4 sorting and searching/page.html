@@ -1,0 +1,52 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>4.4 Sorting and Searching</title>
+</head><body>Two powerful functions that operate on the memory are <tt>qsort() </tt>and <tt>bsearch()</tt>. Both these function see the memory as a series of bytes. They don't know the type of the memory but works with the help of the function passed as the last argument.<br/>
+<br/>
+<img height="100" src="image.png" width="1000"/><br/>
+<br/>
+We have to implement the <tt>compar() </tt>function ourselves.<br/>
+<br/>
+The <tt>qsort() </tt>function sorts an array using quicksort algorithm. This function requires the pointer to the array to be sorted (base), the number of elements (nmemb), the size of an element (size), the pointer to the comparator function. The functions should accept two pointers to any two array elements and return zero if they're equal, positive when the first element should precede the second one, and negative otherwise. The <tt>qsort() </tt>returns nothing. <br/>
+<br/>
+Now we'll implement this function.<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<img src="image 3.png"/><br/>
+<br/>
+In the <tt>cmp() </tt>function, we typecast the void pointer to float pointer and then dereference it to get it's values.<br/>
+<br/>
+Some simple change in the conditional statement will change the order.<br/>
+<br/>
+<img src="image 4.png"/><br/>
+<img src="image 5.png"/><br/>
+<br/>
+But we can shorten the comparator by a simple subtraction.<br/>
+<br/>
+<img src="image 6.png"/><br/>
+<img src="image 7.png"/><br/>
+<br/>
+If we swap v1 and v2, the list will be reversed. <br/>
+<br/>
+We can also sort a complex structures-<br/>
+<br/>
+<img src="image 8.png"/><br/>
+<img src="image 9.png"/><br/>
+<br/>
+We can sort by name if we change the member selector operator in <tt>cmp()</tt>. As the sort is faster when the size is smaller, we can optimize the program by sorting the pointers instead of the memory itself. We can sort the memory using more than one criterion. <br/>
+<br/>
+<br/>
+The <tt>bsearch() </tt>function search an array of sorted elements using binary search. It requires the pointer to the value being searched (key), the pointer to the array being searched (base), the number of elements (nmemb) and the size of a single element (size), the pointer to the comparator function (compar). The function returns a pointer to the found element or NULL if it doesn't exist.<br/>
+<br/>
+let's start with a very simple example-<br/>
+<br/>
+<img src="image 10.png"/><br/>
+<img src="image 11.png"/><br/>
+<br/>
+We can also search through structures.<br/>
+<br/>
+<img src="image 12.png"/><br/>
+<img src="image 13.png"/><br/>
+<br/>
+</body></html>

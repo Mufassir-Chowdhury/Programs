@@ -1,0 +1,54 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.3 Opening and closing files</title>
+</head><body>Opening a file is primarily performed by <tt>open()</tt>.<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+The second parameter is a bit mask specifying how to open the file. Be aware of the fact that some of the flags need to be used exclusively.<br/>
+<br/>
+This function comes from <tt>fcntl.h </tt>but CL uses a header named <tt>io.h</tt>.<br/>
+<br/>
+This function has a second variant utilized when the function is expected to possibly create a new file. The third parameter specifies the permissions of the newly created file. This comes from <tt>unistd.h. </tt>This is connected to Unix conventions and is silently ignored in MS Windows.<br/>
+<br/>
+Symbols:<br/>
+<br/>
+<tt>1. O_RDONLY </tt>indicates that you're just going to read the file.<br/>
+2. <tt>O_WRONLY </tt>indicates that you're just going to write to the file.<tt><br/>
+</tt><tt>3. O_RDWR </tt>indicates that you're read and write to the file.<tt><br/>
+</tt><tt><span style="font-family: sans">These three must be used exclusively.<br/>
+</span><span style="font-family: monospace">4. O_CREAT </span><span style="font-family: sans">creates a file if it doesn't exist. Otherwise open() fails if the file doesn't exist. If the file already exists, it will be left intact. The newly created file will be emply.<br/>
+</span><span style="font-family: monospace">5. O_TRUNC </span><span style="font-family: sans">clears the file during opening.<br/>
+</span><span style="font-family: sans">If you're going to start your work with a file and you want to make sure it's empty:<br/>
+</span><span style="font-family: monospace">	O_CREAT | O_TRUNC | O_WRONLY<br/>
+</span>6. O_APPEND <span style="font-family: sans">ensures that you're always writing at the end of the file.<br/>
+</span><span style="font-family: monospace">7. O_DIRECT </span><span style="font-family: sans">turns off any buffering associated with the file. This degrades the performance.<br/>
+</span><span style="font-family: sans"><b>Not implemented in CL.</b><br/>
+</span><span style="font-family: monospace">8. O_SYNC </span><span style="font-family: sans">forces the OS to behave synchronously. This means if you're using write() function, the return from the function will mean the actual completion instead of storing in the buffer for some time.<br/>
+</span><span style="font-family: sans"><b>Not implemented in CL.<br/>
+</b></span><span style="font-family: monospace">9. O_BINARY and O_TEXT </span><span style="font-family: sans">opens in the respective form. This is necessary because of endline translation. <br/>
+</span><span style="font-family: sans"><b>Implemented only in CL.<br/>
+All this flags are provided by fcntl.h<br/>
+<br/>
+</b></span><span style="font-family: sans">Files are closed by </span><span style="font-family: monospace">close()<br/>
+</span><span style="font-family: monospace"><br/>
+</span><img src="image 2.png"/><span style="font-family: monospace"><br/>
+</span><br/>
+</tt>This function comes from unistd<tt>.h </tt>but CL uses a header named <tt>io.h</tt>.<br/>
+<br/>
+You can use <tt>access() </tt>to know if you have specific access to a flie.<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+This function comes from unistd<tt>.h </tt>but CL uses a header named <tt>io.h</tt>.<br/>
+<br/>
+The mode can be the following:<br/>
+<br/>
+<tt>1. F_OK </tt>does the file exist?<br/>
+<tt>2. R_OK </tt>may the file be read?<br/>
+<tt>3. W_OK </tt>may the file be written to?<br/>
+<tt>4. X_OK </tt>may the file be executed?<br/>
+<tt><br/>
+</tt><tt>access() </tt>returns 0 on success or -1 otherwise. In the letter case, the errno variable is set to an appropriate value. This function can be misleading in rare cases.<br/>
+</body></html>

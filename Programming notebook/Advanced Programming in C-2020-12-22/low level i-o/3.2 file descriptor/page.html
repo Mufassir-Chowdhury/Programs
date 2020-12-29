@@ -1,0 +1,42 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>3.2 File Descriptor</title>
+</head><body>Using a file by <tt>stdio.h </tt>uses a dedicated structure named <tt>FILE.</tt>We use a pointer to that structure.<br/>
+- We use <tt>fopen() </tt>to open a file which returns a pointer to that structure otherwise returns <tt>NULL.<br/>
+</tt>- All the file functions expect this pointer as an argument identifying the opened file. They perform task and updates the structure.<br/>
+- The <tt>fclose() </tt>function closes the file and invalidates the structure.<br/>
+<br/>
+But the <tt>open() </tt>returns an int. This int indicates to a specific index of an array consisting of complicated structures. This index is named a <b>file descriptor</b>. Some of the descriptor are quite predictable in contrary to <tt>FILE * </tt>pointers. For example,<ul><li>0 - connected to <tt>stdin</tt></li>
+<li>1 - connected to <tt>stdout</tt></li>
+<li>2 - connected to <tt>stderr.</tt></li>
+</ul>
+<tt><br/>
+</tt>The files opened subsequently will have descriptors of increasing numbers. So, the next open file will have 3 as its file descriptor.<br/>
+The function returns -1 if an error occurs.<br/>
+<br/>
+Any file represented by a <tt>FILE </tt>structure is in fact assinged/connected to a corresponding file descriptor. It's possible to find the descriptor connected to the <tt>FILE </tt>structure by using the <tt>fileno()</tt>function. <br/>
+<br/>
+It isn't possible the other way around.<br/>
+<br/>
+<img src="image.png"/><br/>
+<img src="image 4.png"/><br/>
+<br/>
+This prints 2.<br/>
+<br/>
+If opening the file is unsuccessful, we can know the reason by using <tt>errno.h</tt>. It has a variable named <tt>errno </tt>which holds a number responsible for a specific problem.<br/>
+<ul><li><tt>EACCES (13) </tt>- Permission denied.</li>
+<li><tt>EBADF (9) </tt>- Bad file descriptor. (Bad means invalid)</li>
+<li><tt>EEXIST (17) </tt>- File exists (But you tried to create a file of the same name.</li>
+<li><tt>ENOENT (2) </tt>- No such file or directory. (You've tried to access)</li>
+<li><tt>EMFILE (24) </tt>- Too many open files.</li>
+<li><tt>ENOSPC (28) </tt>- No space left on the device.</li>
+<li><tt>EIO (5) </tt>- I/O error. (Fatal)</li>
+</ul>
+<br/>
+The following program outputs 9.<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<img src="image 3.png"/><br/>
+<br/>
+</body></html>
