@@ -2,7 +2,7 @@ ResolucionDe2020: [
     'code',
     'code',
     'code',
-    'pass the tests',
+    'pass the exams',
 ];
 
 let a = ResolucionDe2020;
