@@ -42,7 +42,12 @@
         "xmemory0": "cpp",
         "xstddef": "cpp",
         "xtr1common": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "atomic": "cpp",
+        "cctype": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "iterator": "cpp"
     },
     "compile-hero.disable-compile-files-on-did-save-code": true,
     "files.exclude": {
