@@ -12,7 +12,7 @@ private:
     data_type val;
     class Node *next;
 
-protected:
+public:
     void setValue(data_type val);
     data_type getValue() const;
     Node* getPtr() const;
@@ -28,13 +28,28 @@ public:
     void push_front(data_type value);
     bool is_empty() const;
     void print() const;
+    template <typename data_type>
+    std::ostream& operator<<(std::ostream& stream){
+        if(is_empty())
+            stream << "List Empty!";
+        else{
+            Node<data_type>* temporary = getHead();
+            stream << "List: ";
+            while(temporary){
+                stream << temporary -> getValue() << " ";
+                temporary = temporary -> getPtr();
+            }
+        }
+        stream << std::endl;
+        return stream;
+    }
 
 private:
     Node<data_type> *head, *tail;
     int number_of_member;
     Node<data_type>* getNewNode(data_type value);
 
-protected:
+public:
     void setHead(Node<data_type>* ptr);
     void setTail(Node<data_type>* ptr);
     Node<data_type>* getHead() const;
@@ -42,6 +57,7 @@ protected:
     void increaseMember();
     void decreaseMember();
 };
+
 
 #include"Singly Linked List.tpp"
 #include"Node.tpp"

@@ -61,6 +61,22 @@ void SinglyLinkedList<data_type>::print() const {
     std::cout << std::endl;
 }
 
+// template <typename data_type>
+// std::ostream& SinglyLinkedList<data_type>::operator<<(std::ostream& stream) const{
+//     if(is_empty())
+//         stream << "List Empty!";
+//     else{
+//         Node<data_type>* temporary = getHead();
+//         stream << "List: ";
+//         while(temporary){
+//             stream << temporary -> getValue() << " ";
+//             temporary = temporary -> getPtr();
+//         }
+//     }
+//     stream << std::endl;
+//     return stream;
+// }
+
 // Helper Functions
 
 template <typename data_type>

@@ -12,7 +12,7 @@ int main(){
     std::cout << test_list.is_empty() << " : " << test_list.length() << std::endl;
     test_list.push_front(2);
     std::cout << test_list.is_empty() << " : " << test_list.length() << std::endl;
-
+    std::cout << test_list << std::endl;
     test_list.print();
     return 0;
 }
