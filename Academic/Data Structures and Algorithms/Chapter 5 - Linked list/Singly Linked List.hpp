@@ -29,11 +29,11 @@ public:
     bool is_empty() const;
     void print() const;
     template <typename data_type>
-    std::ostream& operator<<(std::ostream& stream){
-        if(is_empty())
+    std::ostream& operator<<(std::ostream& stream, const SinglyLinkedList toPrint){
+        if(toPrint.is_empty())
             stream << "List Empty!";
         else{
-            Node<data_type>* temporary = getHead();
+            Node<data_type>* temporary = toPrint.getHead();
             stream << "List: ";
             while(temporary){
                 stream << temporary -> getValue() << " ";
