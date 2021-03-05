@@ -16,16 +16,16 @@ void Node<data_type>::setValue(data_type value){
 }
 
 template <typename data_type>
-data_type Node<data_type>::getValue(){
+data_type Node<data_type>::getValue() const{
     return val;
 }
 
 template <typename data_type>
-Node<data_type>* Node<data_type>::getPtr(){
+Node<data_type>* Node<data_type>::getPtr() const{
     return next;
 }
 
 template <typename data_type>
 void Node<data_type>::setPtr(Node<data_type>* ptr){
-    next = ptr;
+    this -> next = ptr;
 }
