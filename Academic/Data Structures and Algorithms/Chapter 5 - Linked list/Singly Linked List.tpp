@@ -21,11 +21,11 @@ void SinglyLinkedList<data_type>::push_back(data_type value){
 
 template <typename data_type>
 void SinglyLinkedList<data_type>::push_front(data_type value){
-    increaseMember();
     Node<data_type>* newNode = getNewNode(value);
 
     if(is_empty()){}
 
+    increaseMember();
 }
 
 
