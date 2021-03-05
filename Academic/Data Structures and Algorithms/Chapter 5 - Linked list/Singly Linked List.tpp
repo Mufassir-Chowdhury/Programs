@@ -23,7 +23,11 @@ template <typename data_type>
 void SinglyLinkedList<data_type>::push_front(data_type value){
     Node<data_type>* newNode = getNewNode(value);
 
-    if(is_empty()){}
+    if(is_empty()){
+        setTail(newNode);
+    }
+    newNode->setPtr(getHead());
+    setHead(newNode);
 
     increaseMember();
 }
