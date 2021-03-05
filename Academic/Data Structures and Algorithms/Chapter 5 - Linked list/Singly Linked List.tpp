@@ -32,6 +32,54 @@ void SinglyLinkedList<data_type>::push_front(data_type value){
     increaseMember();
 }
 
+template <typename data_type>
+data_type SinglyLinkedList<data_type>::pop_front(){
+    if(is_empty()){
+        std::cout << "List empty! Returning NULL." << std::endl;
+        return static_cast<data_type>(NULL);
+    }
+
+    data_type value{getHead() -> getValue()};
+    if(getHead() == getTail()){
+        delete getHead();
+        setHead(nullptr);
+        setTail(nullptr);
+    } else{
+        Node<data_type>* nextToHead = getHead() ->getPtr();
+        delete getHead();
+        getHead() -> setPtr(nextToHead);
+    }
+    decreaseMember();
+    return value;
+}
+
+template <typename data_type>
+data_type SinglyLinkedList<data_type>::pop_back(){
+    if(is_empty()){
+        std::cout << "List empty! Returning NULL." << std::endl;
+        return static_cast<data_type>(NULL);
+    } else if(getHead() == getTail()){
+
+    }
+}
+
+template <typename data_type>
+data_type SinglyLinkedList<data_type>::back() const{
+    if(is_empty()){
+        std::cout << "List empty! Returning NULL." << std::endl;
+        return static_cast<data_type>(NULL);
+    } else
+        return getTail() -> getValue();
+}
+
+template <typename data_type>
+data_type SinglyLinkedList<data_type>::front() const{
+    if(is_empty()){
+        std::cout << "List empty! Returning NULL." << std::endl;
+        return static_cast<data_type>(NULL);
+    } else    
+        return getHead() -> getValue();
+}
 
 // Utility Functions
 

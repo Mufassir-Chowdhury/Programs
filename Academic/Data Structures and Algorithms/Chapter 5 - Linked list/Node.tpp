@@ -1,13 +1,13 @@
 template <typename data_type>
 Node<data_type>::Node(){
     setValue(0);
-    next = nullptr;
+    setPtr(nullptr);
 }
 
 template <typename data_type>
 Node<data_type>::Node(data_type k){
     setValue(k);
-    next = nullptr;
+    setPtr(nullptr);
 }
 
 template <typename data_type>
