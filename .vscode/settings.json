@@ -47,7 +47,8 @@
         "cctype": "cpp",
         "compare": "cpp",
         "concepts": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "*.tpp": "cpp"
     },
     "compile-hero.disable-compile-files-on-did-save-code": true,
     "files.exclude": {

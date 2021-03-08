@@ -19,12 +19,6 @@ protected:
     void setPtr(Node* ptr);
 };
 
-/**
-        The value of the provided position should be returned. If it doesn't exist, -1 should be returned.
-        @param pos the provided position
-        @return the value at the given position in the list if the position exits, otherwise -1
-    */
-
 template <typename data_type>
 class SinglyLinkedList{
 public:
